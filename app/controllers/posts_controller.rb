@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :update, :edit, :destory]
     def index
-        @posts=Post.all
+        if logged_in?
+            @posts=current_user.uploaded_posts
+        else
+            @posts=Post.all.with_attached_images
+        end
     end
 
     def show
@@ -13,6 +17,7 @@ class PostsController < ApplicationController
     
     def create
         @post = Post.new(post_params)
+        @post.images.attach(params[:post][:images])
         if @post.save
             redirect_to post_path(@post)
         else
@@ -43,6 +48,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:user_id, :title, :image, :clip, :link, :content)
+        params.require(:post).permit(:user_id, :title, :link, :content)
     end
 end

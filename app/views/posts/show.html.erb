@@ -1,4 +1,12 @@
 <h1><%= @post.title %></h1>
-<%= image_tag(@post.link) %><br>
-
-<%= @post.likes %>
+<% if @post.link %>
+    <%= image_tag(@post.link) %><br>
+<% end %>
+<% if @post.images.attached?%>
+    <% @post.images.each do |image| %>
+        <%= image_tag(image) %>
+    <% end %>
+<% end %>
+<br>
+<h4><%= @post.content %></h4><br>
+<%= @post.likes %><br>

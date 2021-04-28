@@ -1,1 +1,12 @@
-<h1>this is post index page</h1>
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+    <h3><%= link_to post.title, post_path(post) %></h3><br>
+    <% if post.link %>
+        <%= image_tag(post.link) %><br>
+    <% end %>
+    <% if post.images.attached?%>
+        <% post.images.each do |image| %>
+            <%= image_tag(image, width: 300, height: 300, display: "block") %>
+        <% end %>
+    <% end %>
+<% end %>
