@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta charset="UTF-8">
@@ -24,15 +23,32 @@
             <%= link_to "BestUps", root_path, class: "nav-link px-2 text-white" %>
             <%= link_to "1KUps", root_path, class: "nav-link px-2 text-white" %>
             <%= link_to "NewUps", root_path, class: "nav-link px-2 text-white" %>
-            <%= link_to "Signup", signup_path, class: "nav-link px-2 text-white" %>
-            <%= link_to "Login", login_path, class: "nav-link px-2 text-white" %>
-            <%= link_to "Logout", logout_path, class: "nav-link px-2 text-white" %>
-          </ul>   
+            <% if !logged_in? %>
+              <%= link_to "Signup", signup_path, class: "nav-link px-2 text-white" %>
+              <%= link_to "Login", login_path, class: "nav-link px-2 text-white" %>
+            <% end %>
+          </ul> 
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/result" method="get">
+            <input type="search" name=name class="form-control" placeholder="Search">
+          </form>
+          <% if logged_in? %>
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-info text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= image_tag("avatar.jpg", alt: "User", width: 32, height: 32, class: "rounded-circle") %>
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                  <li><%= link_to "My posts", root_path, class: "dropdown-item" %></li>
+                  <li><%= link_to "New post", new_post_path, class: "dropdown-item" %></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><%= link_to "Sign out", logout_path, method: "delete", class: "dropdown-item" %></li>
+                </ul>
+            </div>
+          <% end %>
         </div>
       </div>
     </header>
     <div class="container">
-    <%= yield %>
+      <%= yield %>
     </div>
   </body>
 </html>

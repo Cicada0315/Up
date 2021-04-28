@@ -1,4 +1,4 @@
-<%= form_with(model: @user, url: login_path) do |f| %>
+<%= form_with(scope: :user, url: login_path) do |f| %>
     <div class="text-center">
         <%= image_tag("avatar.jpg", alt: "User", width: 250, height: 250) %>
     </div>
@@ -7,6 +7,6 @@
     <%= f.label :password %>
     <%= f.password_field :password, class: "form-control input-lg" %><br>
     <div class="text-center">
-        <%= f.button "Sign Up", class: "btn btn-primary" %>
+        <%= f.submit "Log in" %>
     </div>
 <% end %>

@@ -1,0 +1,17 @@
+<div class="text-center">
+    <h1><%= form_title %></h1>
+</div>
+<%= form_with(model: model) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control input-lg" %>
+    <%= f.label :image %>
+    <%= f.text_field :image, class: "form-control input-lg" %>
+    <%= f.label :clip %>
+    <%= f.text_field :clip, class: "form-control input-lg" %>
+    <%= f.label :link %>
+    <%= f.text_field :link, class: "form-control input-lg" %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control input-lg" %>
+    <%= f.submit button_name %>
+<% end %>
