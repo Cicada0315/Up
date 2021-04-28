@@ -1,24 +1,25 @@
-# README
+![](app/assets/images/logo.png)
+#Up
+Up is an entertain website. Guest can view bunch of different format of fun stuff. People can also make an account to utilize more features such as add posts, comment to another post. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Install
+### Clone the repository
+```
+git clone git@github.com:Cicada0315/git@github.com:Cicada0315/Up.git
+cd Up
+```
+### Install gem
+```
+bundle install
+```
+### Run
+```
+rails s
+``` 
 
-Things you may want to cover:
+## Navigate website
 
-* Ruby version
+## MIT License
+https://github.com/Cicada0315/Poison/blob/main/LICENSE
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Welcome to Up and enjoy the website!
