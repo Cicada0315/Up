@@ -1,0 +1,24 @@
+<%= form_with(model: @user, url: signup_path) do |f| %>
+    <div class="text-center">
+        <%= image_tag("avatar.jpg", alt: "User", width: 250, height: 250) %>
+    </div>
+    <div class="row">
+        <div class="col">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: "form-control input-lg" %><br>
+        </div>
+        <div class="col">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: "form-control input-lg" %><br>
+        </div>
+    </div>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control input-lg" %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control input-lg" %><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control input-lg" %><br>
+    <div class="text-center">
+        <%= f.submit "Sign Up" %>
+    </div>
+<% end %>

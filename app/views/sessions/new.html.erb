@@ -1,0 +1,12 @@
+<%= form_with(model: @user, url: login_path) do |f| %>
+    <div class="text-center">
+        <%= image_tag("avatar.jpg", alt: "User", width: 250, height: 250) %>
+    </div>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control input-lg" %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control input-lg" %><br>
+    <div class="text-center">
+        <%= f.button "Sign Up", class: "btn btn-primary" %>
+    </div>
+<% end %>
