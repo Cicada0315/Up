@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :update, :edit, :destory]
     def index
-        @posts=current_user.posts
+        @posts=current_user.uploaded_posts
     end
 
     def show
         @post.update(views: @post.views+1)
+        @comments = @post.comments
+        #@comment = @post.comments.build(user_id: current_user.id)
     end
 
     def new
