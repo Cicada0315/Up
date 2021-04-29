@@ -18,8 +18,33 @@ rails s
 ``` 
 
 ## Navigate website
+### Guest Features
+#### AboutUps
+Short intro about Ups
+#### TopUps
+Post list by most viewed
+#### 1kUps
+Post list by most liked
+#### NewUps
+Post list by most recent
+#### Signup
+User should fill out all the field in order to register 
+### User Features
+#### All of Guest features
+#### My Posts
+Post list that user uploaded
+#### New Post
+User can add new post
+#### Edit Post
+User can modify their own post
+#### Delete
+User can delete their own post
+#### Add comment
+User can add comment for the post
+#### Like
+User can like other user's the post
 
 ## MIT License
-https://github.com/Cicada0315/Poison/blob/main/LICENSE
+https://github.com/Cicada0315/Up/blob/master/LICENSE
 
 ## Welcome to Up and enjoy the website!
