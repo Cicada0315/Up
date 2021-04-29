@@ -1,13 +1,18 @@
 class PostsController < ApplicationController
-    before_action :set_post, only: [:show, :update, :edit, :destory]
+    before_action :redirect_if_not_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
+    before_action :set_post, only: [:show, :update, :edit, :destroy]
     def index
-        @posts=current_user.uploaded_posts
+        if current_user.uploaded_posts.empty?
+            flash[:message] = "You haven't post anything yet why don't you post one"
+            render :new
+        else
+            @posts=current_user.uploaded_posts
+        end
     end
 
     def show
         @post.update(views: @post.views+1)
         @comments = @post.comments
-        #@comment = @post.comments.build(user_id: current_user.id)
     end
 
     def new
@@ -36,8 +41,8 @@ class PostsController < ApplicationController
         end
     end
 
-    def destory
-        @post.destory
+    def destroy
+        @post.destroy
         redirect_to posts_path
     end
 

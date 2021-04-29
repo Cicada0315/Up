@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+
   get '/topups', to: 'posts#topups', as: 'topups'
   get '/kups', to: 'posts#kups', as: 'kups'
   get '/newups', to: 'posts#newups', as: 'newups'

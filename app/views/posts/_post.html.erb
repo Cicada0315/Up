@@ -1,18 +1,18 @@
 <div  class="card">
     <div class="row no-gutters">
         <div class="col-auto">
-            <% if post.link %>
-                <%= image_tag(post.link) %><br>
+            <% if !post.link.empty? %>
+                <%= image_tag(post.link, width: 300, height: 300, style: "float:left") %><br>
             <% end %>
             <% if post.images.attached?%>
-                <%= image_tag(post.images.first, width: 300, height: 300, display: "block", style: "float:left") %> 
+                <%= image_tag(post.images.first, width: 300, height: 300, style: "float:left") %> 
             <% end %>
         </div>
         <div class="col">
             <div class="card-block px-2">
                 <br><br>
                 <h3><%= link_to post.title, post_path(post), class: "text-dark" %></h3>
-                <h4><%= post.user.username %></h4><br>
+                <h4><%= post.user.username %></h4><p><%= post.post_date %><p> <br>
                 <h4><%= image_tag('view.png', width: '25px', height: '25px')%><%= post.views %> 
                 <%= image_tag('ThumbsUp.png', width: '25px', height: '25px')%><%= post.likes.count %>
                 <%= image_tag('comment.png', width: '25px', height: '25px')%><%= post.comments.count %>
@@ -20,3 +20,4 @@
         </div>
     </div>
 </div>
+<br>
