@@ -9,4 +9,7 @@
 <% end %>
 <br>
 <h4><%= @post.content %></h4><br>
-<h4><%= image_tag('ThumbsUp.png', width: '20px', height: '20px')%><%= @post.likes %></h4><br>
+
+   
+<h4><%= link_to image_tag('ThumbsUp.png', width: '30px', height: '30px'), post_likes_path(@post), method: :post %><%= @post.likes.count %></h4><br>
+

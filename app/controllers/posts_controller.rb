@@ -1,14 +1,11 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :update, :edit, :destory]
     def index
-        if logged_in?
-            @posts=current_user.uploaded_posts
-        else
-            @posts=Post.all.with_attached_images
-        end
+        @posts=Post.all
     end
 
     def show
+        #@post.update(views: @post.views+1)
     end
 
     def new
