@@ -5,19 +5,19 @@
     <div class="row">
         <div class="col">
             <%= f.label :last_name %>
-            <%= f.text_field :last_name, class: "form-control input-lg" %><br>
+            <%= f.text_field :last_name, required: true, class: "form-control input-lg" %><br>
         </div>
         <div class="col">
             <%= f.label :first_name %>
-            <%= f.text_field :first_name, class: "form-control input-lg" %><br>
+            <%= f.text_field :first_name, required: true, class: "form-control input-lg" %><br>
         </div>
     </div>
     <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control input-lg" %><br>
+    <%= f.email_field :email, required: true, class: "form-control input-lg" %><br>
     <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control input-lg" %><br>
+    <%= f.password_field :password, required: true, class: "form-control input-lg" %><br>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "form-control input-lg" %><br>
+    <%= f.password_field :password_confirmation, required: true, class: "form-control input-lg" %><br>
     <div class="text-center">
         <%= f.submit "Sign Up" %>
     </div>
