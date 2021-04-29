@@ -18,13 +18,13 @@ rails s
 ``` 
 
 ## Navigate website
-### Guest Features
+### [Guest Features]
 #### AboutUps: Short intro about Ups
 #### TopUps: Post list by most viewed
 #### 1kUps: Post list by most liked
 #### NewUps: Post list by most recent
 #### Signup: User should fill out all the field in order to register 
-### User Features
+### [User Features]
 #### All of Guest features
 #### My Posts: Post list that user uploaded
 #### New Post: User can add new post
