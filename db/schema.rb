@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_004458) do
     t.string "title"
     t.string "link"
     t.string "content"
+    t.integer "views", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"

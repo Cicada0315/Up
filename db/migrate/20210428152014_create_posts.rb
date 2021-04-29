@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :link
       t.string :content
+      t.integer :views, default: 0
 
       t.timestamps
     end

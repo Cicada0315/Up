@@ -5,8 +5,7 @@ class Post < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many_attached :images
 
-    def like_clicked
-        like+=1
-    end
-    
+    scope :newups, -> {order created_at: :desc}
+    scope :topups, -> {order views: :desc}
+    scope :kups, -> {order views: :desc}    
 end

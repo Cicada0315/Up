@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/topups', to: 'posts#topups', as: 'topups'
+  get '/kups', to: 'posts#kups', as: 'kups'
+  get '/newups', to: 'posts#newups', as: 'newups'
 end

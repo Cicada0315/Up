@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :update, :edit, :destory]
     def index
-        @posts=Post.all
+        @posts=current_user.posts
     end
 
     def show
-        #@post.update(views: @post.views+1)
+        @post.update(views: @post.views+1)
     end
 
     def new
@@ -37,6 +37,18 @@ class PostsController < ApplicationController
     def destory
         @post.destory
         redirect_to posts_path
+    end
+
+    def topups
+        @posts=Post.topups
+    end
+
+    def kups
+        @posts=Post.kups
+    end
+
+    def newups
+        @posts=Post.newups
     end
 
     private

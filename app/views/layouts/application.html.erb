@@ -20,9 +20,9 @@
           <%= link_to image_tag('Logo.png', width: '30px', height: '30px'), root_path %>
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <%= link_to "AboutUps", about_path, class: "nav-link px-2 link-info" %>
-            <%= link_to "TopUps", root_path, class: "nav-link px-2 text-white" %>
-            <%= link_to "1KUps", root_path, class: "nav-link px-2 text-white" %>
-            <%= link_to "NewUps", root_path, class: "nav-link px-2 text-white" %>
+            <%= link_to "TopUps", topups_path, class: "nav-link px-2 text-white" %>
+            <%= link_to "1KUps", kups_path, class: "nav-link px-2 text-white" %>
+            <%= link_to "NewUps", newups_path, class: "nav-link px-2 text-white" %>
             <% if !logged_in? %>
               <%= link_to "Signup", signup_path, class: "nav-link px-2 text-white" %>
               <%= link_to "Login", login_path, class: "nav-link px-2 text-white" %>
