@@ -1,6 +1,5 @@
-<p>Uploaded by <%= @post.user.username %></p>
 <h1><%= @post.title %></h1>
-<p><%= @post.post_date %></p>
+<p><strong>by <%= @post.user.username %></strong> <%= @post.post_date %></p>
 <% if logged_in? && current_user==@post.user %>
     <div class="btn-group">
         <%= button_to "Edit", edit_post_path(@post), method: 'get'%>
@@ -27,15 +26,18 @@
     <%= form_with(model: [@post, @comment = current_user.comments.build()]) do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :image_id, value: @post.id %>
-        <%= f.text_area :content %>
+        <%= f.text_field :content %>
         <%= f.submit :comment %>
     <% end %>
 <% end %>
 <ul>   
     <% @comments.each do |comment| %>
         <li>
-            <%= comment.user.username %> - <%= comment.content %>
+            <p><strong><%= comment.user.username %></strong> <%= comment.comment_date %> </p>
+            <p><%= comment.content %></p>
         </li>
     <% end %>
 </ul>
+<br>
+<br>
 

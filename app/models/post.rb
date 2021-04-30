@@ -17,6 +17,6 @@ class Post < ApplicationRecord
     }
     
     def post_date
-        created_at.strftime("%m/%d/%Y")
+        created_at.strftime("%m. %d. %Y")
     end
 end
