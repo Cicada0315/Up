@@ -28,9 +28,10 @@
               <%= link_to "Login", login_path, class: "nav-link px-2 text-white" %>
             <% end %>
           </ul> 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/result" method="get">
-            <input type="search" name=name class="form-control" placeholder="Search">
-          </form>
+          <%= form_with(url: search_path, method: 'get', class: 'd-flex') do |f|%>
+          <%= f.text_field :title, class: "form-control me-2", placeholder: "Search for Title" %>
+          <%= f.submit :Search, class: "btn btn-outline-success" %>
+        <% end %>
           <% if logged_in? %>
             <div class="dropdown text-end">
                 <a href="#" class="d-block link-info text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

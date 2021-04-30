@@ -59,6 +59,11 @@ class PostsController < ApplicationController
         @posts=Post.newups
     end
 
+    def search
+        @posts = Post.search(params[:title])
+        render :index
+    end
+
     private
     def set_post
         @post=Post.find_by(id: params[:id])

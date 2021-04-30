@@ -15,6 +15,7 @@ class Post < ApplicationRecord
         .group('post_id')
         .order('likes_count DESC')
     }
+    scope :search, -> (query) { self.where("title LIKE ?", "%#{query}%") }
     
     def post_date
         created_at.strftime("%m. %d. %Y")

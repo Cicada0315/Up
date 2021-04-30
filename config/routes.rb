@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get '/topups', to: 'posts#topups', as: 'topups'
   get '/kups', to: 'posts#kups', as: 'kups'
   get '/newups', to: 'posts#newups', as: 'newups'
+  get '/search', to: 'posts#search', as: 'search'
 end
