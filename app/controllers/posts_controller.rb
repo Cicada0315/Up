@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     def index
         if current_user.uploaded_posts.empty?
             flash[:message] = "You haven't post anything yet why don't you post one"
-            render :new
+            redirect_to new_post_path
         else
             @posts=current_user.uploaded_posts
         end
@@ -21,7 +21,8 @@ class PostsController < ApplicationController
     
     def create
         @post = Post.new(post_params)
-        @post.images.attach(params[:images])
+        @post.image.attach(params[:post][:image])
+        
         if @post.save
             redirect_to post_path(@post)
         else
@@ -64,6 +65,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:user_id, :title, :link, :content, images: [])
+        params.require(:post).permit(:user_id, :title, :link, :content, :image)
     end
 end

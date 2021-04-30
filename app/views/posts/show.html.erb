@@ -12,10 +12,9 @@
 <% if @post.link %>
     <%= image_tag(@post.link) %><br>
 <% end %>
-<% if @post.images.attached?%>
-    <% @post.images.each do |image| %>
-        <%= image_tag(image) %>
-    <% end %>
+
+<% if @post.image.attached?%>
+    <%= image_tag(@post.image) %>
 <% end %>
 <br>
 <h4><%= @post.content %></h4><br>

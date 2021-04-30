@@ -5,10 +5,10 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control input-lg" %>
-    <% 3.times do %>
-        <%= f.label :images %>
-        <%= f.file_field :images, multiple: true,class: "form-control input-lg" %>
-    <% end %>
+   
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control input-lg" %>
+    
     <%= f.label :link %>
     <%= f.text_field :link, class: "form-control input-lg" %>
     <%= f.label :content %>

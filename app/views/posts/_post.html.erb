@@ -4,8 +4,8 @@
             <% if !post.link.empty? %>
                 <%= image_tag(post.link, width: 300, height: 300, style: "float:left") %><br>
             <% end %>
-            <% if post.images.attached?%>
-                <%= image_tag(post.images.first, width: 300, height: 300, style: "float:left") %> 
+            <% if post.image.attached?%>
+                <%= image_tag(post.image, width: 300, height: 300, style: "float:left") %> 
             <% end %>
         </div>
         <div class="col">
