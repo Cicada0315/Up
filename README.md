@@ -11,6 +11,8 @@ cd Up
 ### Install gem
 ```
 bundle install
+rails webpacker:install
+rails db:migrate
 ```
 ### Run
 ```
