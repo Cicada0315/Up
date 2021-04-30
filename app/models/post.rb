@@ -4,6 +4,7 @@ class Post < ApplicationRecord
     has_many :users, through: :comments
     has_many :likes, dependent: :destroy
     has_many_attached :images
+    validates :title, presence: true
 
     scope :newups, -> {order created_at: :desc}
     scope :topups, -> {order views: :desc}

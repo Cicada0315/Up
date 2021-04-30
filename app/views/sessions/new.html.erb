@@ -1,3 +1,4 @@
+<%= render partial: 'static/errors', locals: {model: @user} %>
 <%= form_with(scope: :user, url: login_path) do |f| %>
     <div class="text-center">
         <%= image_tag("avatar.jpg", alt: "User", width: 250, height: 250) %>

@@ -1,7 +1,7 @@
 <p>Uploaded by <%= @post.user.username %></p>
 <h1><%= @post.title %></h1>
 <p><%= @post.post_date %></p>
-<% if logged_in? %>
+<% if logged_in? && current_user==@post.user %>
     <div class="btn-group">
         <%= button_to "Edit", edit_post_path(@post), method: 'get'%>
         <%= button_to 'Delete', @post, method: 'delete' %>
@@ -26,6 +26,8 @@
 <h4>comments <%= @comments.count %></h4>
 <% if logged_in? %>
     <%= form_with(model: [@post, @comment = current_user.comments.build()]) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :image_id, value: @post.id %>
         <%= f.text_area :content %>
         <%= f.submit :comment %>
     <% end %>

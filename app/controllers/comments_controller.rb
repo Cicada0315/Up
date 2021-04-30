@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     before_action :find_post
     def create
         @comment = @post.comments.build(comment_params)

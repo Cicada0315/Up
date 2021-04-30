@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     
     def create
         @post = Post.new(post_params)
-        @post.images.attach(params[:post][:images])
+        @post.images.attach(params[:images])
         if @post.save
             redirect_to post_path(@post)
         else
@@ -64,6 +64,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:user_id, :title, :link, :content)
+        params.require(:post).permit(:user_id, :title, :link, :content, images: [])
     end
 end

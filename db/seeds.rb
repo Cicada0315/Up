@@ -10,4 +10,9 @@
 #user 
 #jean lee hello@gmail.com, Cicada
 #john lee hi@gmail.com, Nofun
-#Nick lee how@gmail.com, serious
+#Nick lee how@gmail.com, Serious
+
+#Cicada 2020 in one word, Excuse me, link
+#Nofun when your boss comes in, when your boss is on a week's leave
+
+
