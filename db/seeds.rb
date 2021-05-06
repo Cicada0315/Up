@@ -16,3 +16,8 @@
 #Nofun when your boss comes in, when your boss is on a week's leave
 
 
+Category.create(name: "Fun")
+Category.create(name: "Touching")
+Category.create(name: "Cute")
+Category.create(name: "Weird")
+Category.create(name: "Etc.")

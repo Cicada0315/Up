@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories do 
+    resources :posts, only: [:index, :new, :create]
+  end
+
   resources :user do
     resources :favorites
   end
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
+  get '/mylist', to: 'posts#mylist', as: 'mylist'
   get '/topups', to: 'posts#topups', as: 'topups'
   get '/kups', to: 'posts#kups', as: 'kups'
   get '/newups', to: 'posts#newups', as: 'newups'

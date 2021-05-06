@@ -23,6 +23,18 @@
             <%= link_to "TopUps", topups_path, class: "nav-link px-2 text-white" %>
             <%= link_to "1KUps", kups_path, class: "nav-link px-2 text-white" %>
             <%= link_to "NewUps", newups_path, class: "nav-link px-2 text-white" %>
+            <div class="dropdown text-end">
+                <a href="#" class="nav-link px-2 text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Category
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                  <li><%= link_to "Fun", category_posts_path(1), class: "dropdown-item" %></li>
+                  <li><%= link_to "Touching", category_posts_path(2), class: "dropdown-item" %></li>
+                  <li><%= link_to "Cute", category_posts_path(3), class: "dropdown-item" %></li>
+                  <li><%= link_to "Weird", category_posts_path(4), class: "dropdown-item" %></li>
+                </ul>
+            </div>
+            
             <% if !logged_in? %>
               <%= link_to "Signup", signup_path, class: "nav-link px-2 text-white" %>
               <%= link_to "Login", login_path, class: "nav-link px-2 text-white" %>
@@ -38,7 +50,7 @@
                     <%= image_tag("avatar.jpg", alt: "User", width: 32, height: 32, class: "rounded-circle") %>
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                  <li><%= link_to "My posts", posts_path, class: "dropdown-item" %></li>
+                  <li><%= link_to "My posts", mylist_path, class: "dropdown-item" %></li>
                   <li><%= link_to "My favorites", user_favorites_path(current_user), class: "dropdown-item" %></li>
                   <li><%= link_to "New post", new_post_path, class: "dropdown-item" %></li>
                   <li><hr class="dropdown-divider"></li>

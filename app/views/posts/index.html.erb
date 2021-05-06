@@ -1,2 +1,6 @@
-<h1>My Posts</h1>
+<h1>Posts</h1>
+<% if @category %>
+    <h2>Category: <%= @category.name %></h2><br>
+    <%= link_to "Make new post for this category", new_category_post_path(@category) %>
+<% end %>
 <%= render @posts %>

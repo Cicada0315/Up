@@ -13,5 +13,6 @@
     <%= f.text_field :link, class: "form-control input-lg" %>
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control input-lg" %>
+    <%= fields_for_helper(f) %>
     <%= f.submit button_name %>
 <% end %>

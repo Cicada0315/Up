@@ -19,6 +19,12 @@ class Post < ApplicationRecord
         .order('likes_count DESC')
     }
     scope :search, -> (query) { self.where("title LIKE ?", "%#{query}%") }
+
+    def category_attributes=(attributes)
+        if !(attributes[:name].blank?)
+            self.category = Category.find_or_create_by(attributes)
+        end
+    end
     
     def post_date
         created_at.strftime("%m. %d. %Y")
