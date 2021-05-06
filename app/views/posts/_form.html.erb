@@ -14,5 +14,10 @@
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control input-lg" %>
     <%= fields_for_helper(f) %>
+    <% if @category %>
+        <%= f.hidden_field :category_id, value: @category.id %> 
+    <%else%>
+        <%= render partial: "fields_for", locals: {f: f}  %>
+    <%end %>
     <%= f.submit button_name %>
 <% end %>

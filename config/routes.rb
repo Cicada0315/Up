@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   resources :categories do 
     resources :posts, only: [:index, :new, :create]
   end
-
-  resources :user do
-    resources :favorites
-  end
+  
+  resources :favorites
 
   resources :posts do
     resources :likes
