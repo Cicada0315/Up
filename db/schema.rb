@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_004458) do
+ActiveRecord::Schema.define(version: 2021_05_06_031638) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,23 @@ ActiveRecord::Schema.define(version: 2021_04_29_004458) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorite_posts", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "favorite_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favorite_id"], name: "index_favorite_posts_on_favorite_id"
+    t.index ["post_id"], name: "index_favorite_posts_on_post_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "user_id", null: false
@@ -86,6 +103,9 @@ ActiveRecord::Schema.define(version: 2021_04_29_004458) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorite_posts", "favorites"
+  add_foreign_key "favorite_posts", "posts"
+  add_foreign_key "favorites", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"

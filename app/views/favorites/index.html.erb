@@ -1,0 +1,4 @@
+<h1>My favorites</h1>
+<% @favorites.each do |f| %>
+    <%=link_to f.name, user_favorite_path(current_user, f)%>
+<% end %>

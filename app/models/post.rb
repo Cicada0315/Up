@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+    has_many :favorite_posts
+    has_many :favorites, through: :favorite_posts
     belongs_to :user
     has_many :comments, dependent: :destroy
     has_many :users, through: :comments

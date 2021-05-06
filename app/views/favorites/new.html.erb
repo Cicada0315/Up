@@ -1,0 +1,9 @@
+<h1> Create New Favorite List</h1>
+<%= form_with(model: [current_user, @favorite]) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.collection_check_boxes :post_ids, Post.all, :id, :title %>
+    <br><br>
+    <%= f.submit "Create" %>
+<% end %>

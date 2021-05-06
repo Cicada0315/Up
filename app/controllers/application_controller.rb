@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     def redirect_if_not_logged_in
         redirect_to login_path if !logged_in?
     end
+
+    def redirect_if_logged_in
+        redirect_to posts_path if logged_in?
+    end
 end

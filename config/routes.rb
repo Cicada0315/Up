@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :user do
+    resources :favorites
+  end
+
   resources :posts do
     resources :likes
     resources :comments
