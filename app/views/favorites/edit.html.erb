@@ -1,4 +1,4 @@
-<h1> Create New Favorite List</h1>
+<h1> Edit Favorite List</h1>
 <%= form_with(model: @favorite) do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :name %>

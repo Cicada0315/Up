@@ -1,4 +1,11 @@
 <h1><%=@favorite.name%> list</h1>
+<% if logged_in? && current_user==@favorite.user %>
+    <div class="btn-group">
+        <%= button_to "Edit", edit_favorite_path(@favorite), method: 'get'%>
+        <%= button_to 'Delete', @favorite, method: 'delete' %>
+    </div>
+    <br>
+<% end %>
 <% @favorite.posts.each do |p| %>
     <li><%=link_to p.title, post_path(p) %></li>
 <% end %>

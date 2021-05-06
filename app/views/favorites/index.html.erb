@@ -1,4 +1,7 @@
 <h1>My favorites</h1>
+<%=link_to 'Create New List', new_favorite_path %><br>
+
 <% @favorites.each do |f| %>
-    <%=link_to f.name, user_favorite_path(current_user, f)%>
+    <li><%=link_to f.name, favorite_path(f)%></li>
 <% end %>
+
