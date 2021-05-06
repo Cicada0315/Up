@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+    belongs_to :category, optional: true 
     has_many :favorite_posts
     has_many :favorites, through: :favorite_posts
     belongs_to :user
